@@ -1,0 +1,83 @@
+@import 'nib'
+
+// base colors
+$black = #262626
+$blue = #01afd2
+$grey = #8b95a2
+$white = #eaedf2
+
+.jquery-datetime
+  position relative
+  .overlay
+    background rgba(0, 0, 0, .2)
+    height 100%
+    left 0
+    position fixed
+    top 0
+    width 100%
+    z-index 1000
+  .wrapper
+    background-color $white
+    border solid 2px $blue
+    box-shadow 0 0 8px $grey
+    color $black
+    font-family sans-serif
+    font-size 12px
+    line-height 18px
+    position absolute
+    right 0
+    width 400px
+    top 0
+    z-index 1001
+  .preview-wrapper
+    background $blue
+    color white
+    display block
+    margin-top 10px
+    overflow hidden
+    padding 6px 4%
+    .preview
+      cursor pointer
+      display inline-block
+      float left
+      margin 0
+      padding 0
+    .clear
+      background-color lighten($white, 10)
+      border-radius 2px
+      color darken($blue, 10)
+      cursor pointer
+      display inline-block
+      float right
+      padding 0 5px
+      text-transform uppercase
+  .date, .time
+    box-sizing border-box
+    margin-top 10px
+  .unit
+    display inline-block
+    margin-right 4%
+    width 28%
+    &:first-child
+      margin-left 4%
+  .time .unit
+    width 18%
+    &:last-child
+      width 48%
+
+
+
+.jquery-datetime
+  &[data-type='datetime']
+    [data-unit='second']
+      display none
+  &[data-type='date']
+    .time
+      display none
+  &[data-type='time']
+    .date, [data-unit='timezone']
+      display none
+    .time .unit
+      width 28%
+    .wrapper
+      width 300px
